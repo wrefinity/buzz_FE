@@ -12,9 +12,9 @@ const BannerLayout = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="relative w-full min-h-screen">
+    <div className="relative w-full min-h-scren">
       {/* Background with waves */}
-      <div className="relative w-full h-[400px]">
+      <div className="relative w-full h-60">
         <Image
           src="/Base.svg"
           alt="Base page background"

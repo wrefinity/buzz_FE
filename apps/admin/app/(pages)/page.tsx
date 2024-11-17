@@ -7,10 +7,10 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
-import { StatCard } from "./components/dashboard/stat-card";
-import { ActiveUsersChart } from "./components/dashboard/active-users-chat";
-import { EarningsChart } from "./components/dashboard/earnings-chart";
-import { DailyActiveUsers } from "./components/dashboard/daily-active-users";
+import { StatCard } from "../components/dashboard/stat-card";
+import { ActiveUsersChart } from "../components/dashboard/active-users-chat";
+import { EarningsChart } from "../components/dashboard/earnings-chart";
+import { DailyActiveUsers } from "../components/dashboard/daily-active-users";
 import { Button } from "@/components/ui/button";
 
 export default function DashboardPage() {

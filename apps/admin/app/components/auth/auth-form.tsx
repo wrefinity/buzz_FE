@@ -26,11 +26,11 @@ export default function Component({
     : "Start your 30-day free trial.";
   const buttonText = isLogin ? "Sign in" : "Get started";
   const altText = isLogin ? "Don't have an account?" : "Already a member?";
-  const altLink = isLogin ? "/signup" : "/login";
+  const altLink = isLogin ? "/sign-up" : "/sign-in";
   const altLinkText = isLogin ? "Sign up" : "Sign in";
 
   return (
-    <div className="container flex w-full py-8 bg-white shadow-md md:p-5 md:px-4 md:mx-auto rounded-xl md:max-w-7xl ">
+    <div className="container flex w-full h-full py-8 bg-white shadow-md md:p-5 md:px-4 md:mx-auto rounded-xl md:max-w-7xl ">
       <div className="flex flex-col w-full space-y-5 md:p-10 lg:w-1/2">
         <div className="flex-1 px-10">
           <h1 className="mb-2 text-2xl font-semibold">{title}</h1>

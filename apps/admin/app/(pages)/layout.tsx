@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "../globals.css";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger
+} from "@/components/ui/sidebar";
+import { AppSidebar } from "../components/sidebar/app-sidebar";
+import Header from "../components/Header";
+
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "../fonts/GeistVF.woff",
   variable: "--font-geist-sans"
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono"
 });
 
@@ -24,7 +32,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <main className="bg-[#F1F1F1] min-h-screen">{children}</main>
+        <SidebarProvider>
+          <AppSidebar />
+          <SidebarInset>
+            <main className="p-6 bg-[#F1F1F1] min-h-screen">
+              <Header />
+              {children}
+            </main>
+          </SidebarInset>
+        </SidebarProvider>
       </body>
     </html>
   );
