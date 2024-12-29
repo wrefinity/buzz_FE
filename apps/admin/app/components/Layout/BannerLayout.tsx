@@ -20,6 +20,7 @@ const BannerLayout = ({
           alt="Base page background"
           fill
           className="object-cover w-full"
+          priority
         />
 
         <div className="absolute w-full text-center text-white transform -translate-x-1/2 -translate-y-1/2 md:p-5 top-1/2 left-1/2 ">

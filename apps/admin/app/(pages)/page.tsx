@@ -12,8 +12,9 @@ import { ActiveUsersChart } from "../components/dashboard/active-users-chat";
 import { EarningsChart } from "../components/dashboard/earnings-chart";
 import { DailyActiveUsers } from "../components/dashboard/daily-active-users";
 import { Button } from "@/components/ui/button";
+import { ProtectedLayout } from '../../components/ProtectedLayout';
 
-export default function DashboardPage() {
+const DashboardPage = () => {
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
       <div className="space-y-6 lg:col-span-2">
@@ -89,3 +90,5 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+export default ProtectedLayout(DashboardPage)

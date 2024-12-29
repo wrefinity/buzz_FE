@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "../components/sidebar/app-sidebar";
 import Header from "../components/Header";
+import StoreProvider from "@/context/storeProvider";
 
 
 const geistSans = localFont({
@@ -31,7 +32,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+
+     <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <SidebarProvider>
           <AppSidebar />
           <SidebarInset>

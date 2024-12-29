@@ -8,14 +8,37 @@ import { Progress } from "@/components/ui/progress";
 interface TaskRowProps {
   icon?: LucideIcon;
   banner?: string;
-  title: string;
+  title?: string;
   iconColor?: string;
-  subtitle: string;
+  subtitle?: string;
   progress: number;
-  points: string;
-  date: string;
+  points?: string;
+  date?: string;
+  task: ITask;
   onViewDetails: () => void;
   className?: string;
+}
+
+export interface ITask {
+  completedBy: string[];
+  _id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  url: string;
+  socialPlatform: string;
+  rewardTokens: number | string;
+  createdAt: string;
+  __v: number;
+};
+
+const formatDate = (date:string| any) => {
+  const convertDate = new Date(date);
+  return convertDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 }
 
 export function TaskRow({
@@ -26,6 +49,7 @@ export function TaskRow({
   iconColor = "#183B56",
   progress,
   points,
+  task,
   date,
   onViewDetails,
   className
@@ -50,11 +74,11 @@ export function TaskRow({
         )}
   
         {/* Banner */}
-        {banner && (
+        {banner || task.thumbnail && (
           <div className="relative w-20 h-16 overflow-hidden rounded-lg">
             <Image
-              src={banner}
-              alt={title}
+              src={banner || task.thumbnail}
+              alt={title || "banner image" || task.title}
               width={100}
               height={100}
               className="object-cover w-full h-full"
@@ -64,8 +88,8 @@ export function TaskRow({
   
         {/* Title and Subtitle */}
         <div className="space-y-1 max-w-40">
-          <h3 className="font-medium truncate hover:overflow-visible">{title}</h3>
-          <p className="text-sm text-[#718EBF]">{subtitle}</p>
+          <h3 className="font-medium truncate hover:overflow-visible">{title || task.title}</h3>
+          <p className="text-sm text-[#718EBF] line-clamp-2">{subtitle || task.description}</p>
         </div>
   
         {/* Status */}
@@ -89,13 +113,13 @@ export function TaskRow({
         {/* Task Points */}
         <div className="items-center w-20">
           <div className="mb-1 text-sm">Task Points</div>
-          <div className="text-sm text-[#718EBF]">{points}</div>
+          <div className="text-sm text-[#718EBF]">{points || task.rewardTokens}</div>
         </div>
   
         {/* Task Date (Hidden on Small and Medium Screens) */}
         <div className="hidden w-20 md:block">
           <div className="mb-1 text-sm">Task Date</div>
-          <div className="text-sm text-[#718EBF]">{date}</div>
+          <div className="text-sm text-[#718EBF]">{date || formatDate(task.createdAt)}</div>
         </div>
   
         {/* View Details Button */}
